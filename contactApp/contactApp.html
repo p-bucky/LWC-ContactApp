@@ -1,0 +1,28 @@
+<template>
+    <lightning-card>
+        <lightning-button-icon 
+            slot="actions"
+            icon-name="utility:sync"  
+            alternative-text="Refresh" 
+            onclick={refreshTodoList}
+            title="Refresh"
+        >
+        </lightning-button-icon>
+    <lightning-datatable
+        key-field="Id"
+        data={visibleContacts}
+        columns={columns}
+        onsave={handleSave}
+        draft-values={draftValues}
+        hide-checkbox-column
+        >
+    </lightning-datatable>
+    <div slot="footer" class="slds-var-m-horizontal_medium">
+        <c-pagination 
+        records={contacts.data} 
+        onupdate={updateContactHandler}>
+        </c-pagination>
+    </div>
+    </lightning-card>
+</template>
+    
